@@ -1,0 +1,19 @@
+# DEMO VALUES ONLY — NOT SCIENTIFIC OR OPERATIONAL THRESHOLDS.
+gnss:
+  acceleration_watch: 0.8
+  acceleration_high: 2.0
+seismic:
+  rms_watch: 0.45
+  peak_high: 1.20
+river:
+  level_change_watch: 0.15
+  level_change_high: 0.50
+  impossible_level_m: 15.0
+weather:
+  freeze_thaw_watch: 0.90
+weights:
+  gnss: 0.20
+  seismic: 0.30
+  weather: 0.10
+  river: 0.30
+  ai: 0.10

@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Valley Village A",
+        "kind": "settlement",
+        "fictional": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.81,
+          28.08
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "River Hamlet B",
+        "kind": "settlement",
+        "fictional": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.79,
+          28.04
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mountain Camp C",
+        "kind": "camp",
+        "fictional": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.83,
+          28.12
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Safe Zone Alpha",
+        "kind": "safe_zone",
+        "fictional": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.77,
+          28.03
+        ]
+      }
+    }
+  ]
+}
