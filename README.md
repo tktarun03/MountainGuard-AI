@@ -198,6 +198,71 @@ Recommended visualization stack:
 
 # Quick start
 
+## Easy student setup
+
+These steps work on Windows, macOS, and Linux for the Python-only demo:
+
+1. Install Python 3.12 or newer and Git.
+2. Download the project and open a terminal in its folder:
+
+  ```bash
+  git clone https://github.com/tktarun03/MountainGuard-AI.git
+  cd MountainGuard-AI
+  ```
+
+3. Create and activate a virtual environment.
+
+  Windows PowerShell:
+
+  ```powershell
+  py -3.12 -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+  ```
+
+  macOS/Linux:
+
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  ```
+
+4. Install the Python packages:
+
+  ```bash
+  python -m pip install -r requirements.txt
+  ```
+
+5. Run the tests. You should see all tests pass:
+
+  ```bash
+  pytest -q
+  ```
+
+6. Try a synthetic scenario:
+
+  ```bash
+  python scripts/run_scenario.py multi-hazard
+  ```
+
+7. Start the API and open the student dashboard in separate terminals:
+
+  ```bash
+  uvicorn api.main:app --reload
+  ```
+
+  ```bash
+  cd dashboard/frontend
+  npm install
+  npm run dev
+  ```
+
+  Open `http://localhost:5173` for the dashboard or `http://localhost:8000/docs`
+  for the API explorer. The dashboard displays `NORMAL` if the API is not running.
+
+Sample starter dashboard:
+
+![MountainGuard-AI dashboard sample](docs/images/dashboard-sample.png)
+
 ## Option A — Docker Compose
 
 ```bash
@@ -242,7 +307,42 @@ http://localhost:8000/docs
 
 # Demo scenarios
 
-The boilerplate contains five educational scenarios.
+The simulator contains thirteen educational scenarios. These are synthetic demonstrations,
+not predictions or scientifically validated forecasts.
+
+Run any scenario with:
+
+```bash
+python scripts/run_scenario.py <scenario-name>
+```
+
+| Scenario | What it demonstrates |
+|---|---|
+| `normal` | Healthy baseline telemetry |
+| `sensor-failure` | Implausible river reading and sensor-quality warning |
+| `gradual-instability` | GNSS movement entering the demo watch range |
+| `gnss-only` | Strong GNSS movement without corroboration |
+| `seismic-only` | A single synthetic seismic anomaly |
+| `river-flood` | Rapid synthetic river-level rise |
+| `weather-freeze-thaw` | Elevated freeze/thaw context |
+| `gnss-seismic` | Two independent ground-motion signals |
+| `seismic-river` | Seismic and river anomalies together |
+| `rainfall-river` | Rainfall-context exercise with river response |
+| `multi-hazard` | GNSS, seismic, and river cascade |
+| `sensor-outage` | Missing seismic telemetry and uncertainty |
+| `recovery` | Return to a normal synthetic baseline |
+
+For example:
+
+```bash
+python scripts/run_scenario.py river-flood
+python scripts/run_scenario.py sensor-outage
+python scripts/run_scenario.py multi-hazard
+```
+
+Each command prints JSON containing the generated sensor readings, evidence,
+risk level, and a test alert only when the educational risk level reaches `HIGH`
+or `CRITICAL`.
 
 ## 1. Normal operating day
 

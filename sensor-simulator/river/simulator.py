@@ -4,7 +4,7 @@ def generate(mode='normal'):
     level = random.uniform(1.8, 2.4)
     change = random.uniform(-0.03, 0.05)
     quality = random.uniform(0.94, 1.0)
-    if mode in {'seismic-river', 'multi-hazard'}:
+    if mode in {'river-flood', 'seismic-river', 'rainfall-river', 'multi-hazard'}:
         level = random.uniform(3.2, 5.0)
         change = random.uniform(0.6, 1.4)
     if mode == 'sensor-failure':

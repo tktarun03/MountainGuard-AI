@@ -3,10 +3,10 @@ import random
 def generate(mode='normal'):
     acceleration = random.uniform(0.02, 0.20)
     velocity = random.uniform(1.0, 2.5)
-    if mode == 'gradual-instability':
+    if mode in {'gradual-instability', 'gnss-only', 'gnss-seismic'}:
         acceleration = random.uniform(0.9, 2.2)
         velocity = random.uniform(3.0, 8.0)
-    if mode == 'multi-hazard':
+    if mode in {'gnss-only', 'gnss-seismic', 'multi-hazard'}:
         acceleration = random.uniform(2.1, 4.0)
         velocity = random.uniform(8.0, 15.0)
     return {

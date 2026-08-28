@@ -23,7 +23,12 @@ from rules.threshold_engine import score_readings
 from risk_engine.risk_engine import assess
 from alerting.alert_service import build_test_alert
 
-VALID = {'normal', 'sensor-failure', 'gradual-instability', 'seismic-river', 'multi-hazard'}
+VALID = {
+    'normal', 'sensor-failure', 'gradual-instability', 'gnss-only',
+    'seismic-only', 'river-flood', 'weather-freeze-thaw', 'gnss-seismic',
+    'seismic-river', 'rainfall-river', 'multi-hazard', 'sensor-outage',
+    'recovery',
+}
 
 def run_scenario(name: str):
     if name not in VALID:
@@ -34,6 +39,8 @@ def run_scenario(name: str):
         'weather': weather.generate(name),
         'river': river.generate(name),
     }
+    if name == 'sensor-outage':
+        readings.pop('seismic')
     scores, reasons = score_readings(readings)
     # Educational synthetic AI score, intentionally simple in the scenario runner.
     ai_score = min(1.0, max(scores.values()) * 0.85)

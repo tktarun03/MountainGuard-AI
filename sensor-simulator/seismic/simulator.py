@@ -4,7 +4,7 @@ def generate(mode='normal'):
     rms = random.uniform(0.05, 0.20)
     peak = random.uniform(0.10, 0.40)
     duration = random.uniform(1.0, 4.0)
-    if mode in {'seismic-river', 'multi-hazard'}:
+    if mode in {'seismic-only', 'seismic-river', 'gnss-seismic', 'multi-hazard'}:
         rms = random.uniform(0.7, 1.4)
         peak = random.uniform(1.3, 2.6)
         duration = random.uniform(8.0, 25.0)
