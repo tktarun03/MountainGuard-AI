@@ -263,6 +263,18 @@ Sample starter dashboard:
 
 ![MountainGuard-AI dashboard sample](docs/images/dashboard-sample.png)
 
+### Sample scenario outputs
+
+These screenshots show example JSON results rendered for quick comparison. Values
+are generated randomly each run, so your output will differ.
+
+| Baseline | Watch | High | Critical |
+|---|---|---|---|
+| ![Normal scenario output](docs/images/scenario-normal.png) | ![Watch scenario output](docs/images/scenario-watch.png) | ![High scenario output](docs/images/scenario-high.png) | ![Critical scenario output](docs/images/scenario-critical.png) |
+
+The `HIGH` and `CRITICAL` examples contain simulated test-alert output. They are
+never real emergency notifications.
+
 ## Option A — Docker Compose
 
 ```bash
